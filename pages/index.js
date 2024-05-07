@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 
+import Head from "next/head";
 import MeetupList from "../components/meetups/MeetupList";
 
 const DUMMY_MEETUPS = [
@@ -20,7 +21,13 @@ const DUMMY_MEETUPS = [
 ]
 
 export default function HomePage(props) {
-    return <MeetupList meetups={props.meetups} />;
+    return (<>
+        <Head>
+            <title>React Meetups</title>
+            <meta name="description" content="Meetups" />
+        </Head>
+        <MeetupList meetups={props.meetups} />
+    </>);
 }
 
 // export async function getServerSideProps(context) {
